@@ -1,30 +1,34 @@
+import React from 'react';
 import { Link } from 'react-router-dom';
+import { FaRegSadTear } from 'react-icons/fa';
 
 const NotFound = () => {
   return (
-    <>
-      <div>
-        <section className="bg-white dark:bg-gray-900">
-          <div className="py-8 px-4 mx-auto max-w-screen-xl lg:py-16 lg:px-6">
-            <div className="mx-auto max-w-screen-sm text-center">
-              <h1 className="mb-4 text-7xl tracking-tight font-extrabold lg:text-9xl text-primary-600 dark:text-primary-500">
-                404
-              </h1>
-              <p className="mb-4 text-3xl tracking-tight font-bold text-gray-900 md:text-4xl dark:text-white">
-                Something's missing.
-              </p>
-              <p className="mb-4 text-lg font-light text-gray-500 dark:text-gray-400">
-                Sorry, we can't find that page. You'll find lots to explore on
-                the home page.{' '}
-              </p>
-              <Link to="/" className="btn btn-primary">
-                Back to Homepage
-              </Link>
-            </div>
-          </div>
-        </section>
+    <div className="min-h-screen flex items-center justify-center bg-base-100 p-4">
+      <div className="text-center space-y-6 w-full max-w-2xl">
+        <h1 className="text-[10vw] md:text-[8vw] lg:text-[6vw] font-extrabold text-primary opacity-70">
+          404
+        </h1>
+        <h2 className="text-2xl md:text-3xl lg:text-4xl font-bold text-gray-800">
+          Oops! Page Not Found
+        </h2>
+        <div className="mt-6 w-full max-w-xs md:max-w-sm lg:max-w-md mx-auto opacity-30 flex justify-center items-center">
+          <FaRegSadTear size={200} color="#7f4ff3" />
+        </div>
+        <p className="text-base md:text-lg lg:text-xl text-gray-600 max-w-prose mx-auto px-4">
+          The page you're looking for seems to have wandered off the digital
+          map. Don't worry, we'll help you find your way back to safety.
+        </p>
+        <div className="pt-6">
+          <Link
+            to="/"
+            className="btn btn-primary btn-wide max-w-xs md:max-w-md"
+          >
+            Return Home
+          </Link>
+        </div>
       </div>
-    </>
+    </div>
   );
 };
 
