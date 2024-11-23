@@ -1,6 +1,5 @@
 import { createSlice } from '@reduxjs/toolkit';
 
-// Helper functions to manage localStorage
 const loadStateFromLocalStorage = () => {
   try {
     const serializedState = localStorage.getItem('cart');
@@ -48,7 +47,7 @@ const cartSlice = createSlice({
       state.totalQuantity += 1;
       state.totalAmount += newItem.price;
 
-      saveStateToLocalStorage(state); // Save updated state to localStorage
+      saveStateToLocalStorage(state);
     },
     removeFromCart: (state, action) => {
       const itemId = action.payload;
@@ -66,14 +65,14 @@ const cartSlice = createSlice({
         state.totalAmount -= existingItem.price;
       }
 
-      saveStateToLocalStorage(state); // Save updated state to localStorage
+      saveStateToLocalStorage(state);
     },
     clearCart: (state) => {
       state.items = [];
       state.totalQuantity = 0;
       state.totalAmount = 0;
 
-      saveStateToLocalStorage(state); // Clear state in localStorage
+      saveStateToLocalStorage(state);
     },
   },
 });

@@ -2,6 +2,14 @@ import React from 'react';
 import CardProduct from '../components/Fragments/CardProduct';
 import { useProducts } from '../hooks/useProducts';
 
+const categoryItemCounts = {
+  electronics: 6,
+  jewelery: 4,
+  "men's clothing": 4,
+  "women's clothing": 6,
+  '': 20,
+};
+
 const categories = [
   'electronics',
   'jewelery',
@@ -15,6 +23,10 @@ const ProductListPage = () => {
 
   const handleCategoryChange = (event) => {
     changeCategory(event.target.value);
+  };
+
+  const getSkeletonCount = () => {
+    return categoryItemCounts[selectedCategory] || categoryItemCounts[''];
   };
 
   if (error) {
@@ -44,7 +56,7 @@ const ProductListPage = () => {
 
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
         {loading ? (
-          Array.from({ length: 6 }).map((_, index) => (
+          Array.from({ length: getSkeletonCount() }).map((_, index) => (
             <CardProduct key={index} loading={true} />
           ))
         ) : products && products.length > 0 ? (

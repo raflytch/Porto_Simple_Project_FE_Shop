@@ -1,5 +1,5 @@
-import React from 'react';
 import { useDispatch } from 'react-redux';
+import { useNavigate } from 'react-router-dom';
 import { FaStar } from 'react-icons/fa6';
 import { MdOutlineRateReview } from 'react-icons/md';
 import Skeleton from 'react-loading-skeleton';
@@ -10,6 +10,7 @@ import { addToCart } from '../../features/cart/cartSlice';
 
 const CardProduct = ({ product, loading = false }) => {
   const dispatch = useDispatch();
+  const navigate = useNavigate();
 
   if (loading) {
     return <ProductSkeleton />;
@@ -25,23 +26,29 @@ const CardProduct = ({ product, loading = false }) => {
       : title;
   };
 
-  const handleAddToCart = () => {
+  const handleAddToCart = (e) => {
+    e.stopPropagation();
     dispatch(addToCart(product));
 
-    // Determine toast position based on screen width
-    const isMobile = window.innerWidth <= 640; // Tailwind 'sm' breakpoint
+    const isMobile = window.innerWidth <= 640;
     toast.success(
       `${truncateTitle(product.title)} has been added to your cart`,
       {
-        position: isMobile ? 'bottom-center' : 'top-left', // Dynamic position
+        position: isMobile ? 'bottom-center' : 'top-left',
         autoClose: 1500,
       }
     );
   };
 
+  const handleCardClick = () => {
+    navigate(`/product/${product.id}`);
+  };
+
   return (
-    <div className="card bg-base-100 w-full max-w-xs sm:max-w-sm md:max-w-md lg:max-w-lg mx-auto shadow-xl">
-      {/* Toast Container */}
+    <div
+      className="card bg-base-100 w-full max-w-xs sm:max-w-sm md:max-w-md lg:max-w-lg mx-auto shadow-xl cursor-pointer hover:shadow-2xl transition-shadow duration-300"
+      onClick={handleCardClick}
+    >
       <ToastContainer />
       <figure className="relative pt-[75%]">
         <img

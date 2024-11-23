@@ -6,6 +6,7 @@ import Navbar from './components/Fragments/Navbar';
 import Homepage from './pages/HomePage';
 import LoginPage from './pages/LoginPage';
 import CartPage from './pages/CartPage';
+import ProductDetailPage from './pages/ProductDetailPage';
 import NotFound from './pages/404';
 
 const App = () => {
@@ -28,6 +29,14 @@ const App = () => {
               <AuthMiddleware>
                 <Navbar />
                 <CartPage />
+              </AuthMiddleware>
+            }
+          />
+          <Route
+            path="/product/:id"
+            element={
+              <AuthMiddleware>
+                <ProductDetailPage />
               </AuthMiddleware>
             }
           />

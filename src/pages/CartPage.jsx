@@ -41,16 +41,20 @@ const CartPage = () => {
         {cartItems.map((item) => (
           <div
             key={item.id}
-            className="card bg-base-100 shadow-lg rounded-md flex flex-col sm:flex-row items-center sm:justify-between p-4 sm:p-6"
+            className="card bg-base-100 shadow-lg rounded-md p-4 sm:p-6"
           >
-            {/* Gambar & Info Produk */}
-            <div className="flex items-center space-x-4 w-full sm:w-auto">
-              <img
-                src={item.image}
-                alt={item.title}
-                className="w-20 h-20 object-cover rounded"
-              />
-              <div>
+            <div className="grid grid-cols-1 sm:grid-cols-[auto_1fr_auto_auto] gap-4 items-center">
+              {/* Image */}
+              <div className="w-20 h-20 flex-shrink-0">
+                <img
+                  src={item.image}
+                  alt={item.title}
+                  className="w-full h-full object-cover rounded"
+                />
+              </div>
+
+              {/* Title and Price */}
+              <div className="min-w-0">
                 <h2 className="text-base font-semibold line-clamp-2">
                   {item.title}
                 </h2>
@@ -58,33 +62,34 @@ const CartPage = () => {
                   ${item.price.toFixed(2)}
                 </p>
               </div>
-            </div>
 
-            {/* Kontrol Kuantitas */}
-            <div className="flex items-center space-x-2 mt-4 sm:mt-0">
-              <button
-                className="btn btn-sm btn-circle"
-                onClick={() => handleDecreaseQuantity(item.id)}
-              >
-                <FaMinus />
-              </button>
-              <span className="font-bold">{item.quantity}</span>
-              <button
-                className="btn btn-sm btn-circle"
-                onClick={() => handleIncreaseQuantity(item)}
-              >
-                <FaPlus />
-              </button>
-            </div>
+              {/* Quantity Controls */}
+              <div className="flex items-center space-x-2 justify-center">
+                <button
+                  className="btn btn-sm btn-circle"
+                  onClick={() => handleDecreaseQuantity(item.id)}
+                >
+                  <FaMinus />
+                </button>
+                <span className="font-bold w-8 text-center">
+                  {item.quantity}
+                </span>
+                <button
+                  className="btn btn-sm btn-circle"
+                  onClick={() => handleIncreaseQuantity(item)}
+                >
+                  <FaPlus />
+                </button>
+              </div>
 
-            {/* Harga Total */}
-            <div className="mt-4 sm:mt-0">
-              <span className="font-bold">${item.totalPrice.toFixed(2)}</span>
+              {/* Total Price */}
+              <div className="text-right">
+                <span className="font-bold">${item.totalPrice.toFixed(2)}</span>
+              </div>
             </div>
           </div>
         ))}
 
-        {/* Bagian Total & Tombol Checkout */}
         <div className="card bg-base-100 shadow-lg mt-4 p-4 sm:p-6">
           <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between">
             <button

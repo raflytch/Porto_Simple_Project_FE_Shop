@@ -51,3 +51,23 @@ export const fetchProductsByCategory = async (category) => {
     };
   }
 };
+
+export const fetchProductById = async (id) => {
+  try {
+    const response = await axiosInstance.get(`/products/${id}`, {
+      headers: {
+        'Content-Type': 'application/json',
+      },
+    });
+
+    return {
+      success: true,
+      data: response.data,
+    };
+  } catch (error) {
+    return {
+      success: false,
+      error: error.response?.data?.message || 'Failed to fetch product details',
+    };
+  }
+};
