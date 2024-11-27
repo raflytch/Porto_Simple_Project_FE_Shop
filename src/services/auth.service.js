@@ -22,7 +22,7 @@ export const loginService = async (data) => {
   } catch (error) {
     return {
       success: false,
-      error: error.response?.data?.message,
+      error: error.response?.data,
     };
   }
 };

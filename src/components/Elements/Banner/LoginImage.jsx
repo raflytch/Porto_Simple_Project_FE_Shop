@@ -1,4 +1,4 @@
-import Banner from '../../../../public/Banner.jpg';
+import Banner from '../../../../public/BannerTwo.jpg';
 
 const LoginImage = () => (
   <div className="w-1/2 hidden h-screen lg:block relative overflow-hidden">

@@ -1,9 +1,7 @@
-import Loading from '../Loading/Loading';
-
-const LoginButton = ({ isLoading }) => (
-  <div className="form-control mt-6">
-    <button className="btn btn-primary" disabled={isLoading}>
-      {isLoading ? <Loading /> : 'Login'}
+const LoginButton = () => (
+  <div className="form-control mt-8">
+    <button type="submit" className="btn btn-primary">
+      Login
     </button>
   </div>
 );

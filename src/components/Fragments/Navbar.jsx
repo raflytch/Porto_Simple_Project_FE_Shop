@@ -38,7 +38,7 @@ const Navbar = () => {
   };
 
   return (
-    <nav className="navbar bg-base-100 shadow z-50 sticky top-0 px-4 sm:px-10 py-4">
+    <nav className="navbar bg-base-100 shadow z-30 sticky top-0 px-4 sm:px-10 py-4">
       <div className="flex-1">
         <Link
           to="/"
