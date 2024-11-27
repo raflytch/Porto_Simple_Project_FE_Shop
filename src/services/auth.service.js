@@ -1,7 +1,6 @@
 import axiosInstance from '../api/axiosInstance';
 import Cookies from 'js-cookie';
 import { jwtDecode } from 'jwt-decode';
-import Swal from 'sweetalert2';
 
 export const loginService = async (data) => {
   try {

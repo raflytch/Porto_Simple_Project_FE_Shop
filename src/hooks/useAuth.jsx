@@ -20,7 +20,6 @@ export const useAuth = () => {
   const login = async (credentials) => {
     try {
       dispatch(loginStart());
-
       const result = await loginService({
         username: credentials.username,
         password: credentials.password,
@@ -55,10 +54,13 @@ export const useAuth = () => {
     }
   };
 
-  const handleLogout = () => {
+  const handleLogout = (callback) => {
     Cookies.remove('token');
     dispatch(logout());
-    navigate('/login');
+    callback?.();
+    setTimeout(() => {
+      navigate('/login');
+    }, 1000);
   };
 
   return {

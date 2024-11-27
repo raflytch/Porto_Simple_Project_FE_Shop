@@ -99,7 +99,7 @@ const Navbar = () => {
               className="menu menu-sm dropdown-content bg-base-100 rounded-box mt-3 w-52 p-2 shadow"
             >
               <li>
-                <Link to="/profile" className="justify-between">
+                <Link to={`/profile/${user.sub}`} className="justify-between">
                   {user.user}
                 </Link>
               </li>

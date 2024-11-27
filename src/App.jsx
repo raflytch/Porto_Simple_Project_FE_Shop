@@ -8,6 +8,7 @@ import LoginPage from './pages/LoginPage';
 import CartPage from './pages/CartPage';
 import ProductDetailPage from './pages/ProductDetailPage';
 import NotFound from './pages/404';
+import ProfileDetail from './pages/ProfileDetailPage';
 
 const App = () => {
   return (
@@ -37,6 +38,15 @@ const App = () => {
             element={
               <AuthMiddleware>
                 <ProductDetailPage />
+              </AuthMiddleware>
+            }
+          />
+          <Route
+            path="/profile/:id"
+            element={
+              <AuthMiddleware>
+                <Navbar />
+                <ProfileDetail />
               </AuthMiddleware>
             }
           />
