@@ -36,7 +36,7 @@ const ProfileDetail = () => {
           theme: 'colored',
         });
       } else {
-        toast.info('Logout cancelled', {
+        toast.error('Logout cancelled', {
           position: 'bottom-right',
           autoClose: 3000,
           hideProgressBar: true,
