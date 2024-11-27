@@ -90,7 +90,7 @@ const Navbar = () => {
               <div className="w-10 rounded-full">
                 <img
                   alt="User Profile"
-                  src="https://img.daisyui.com/images/stock/photo-1534528741775-53994a69daeb.webp"
+                  src="https://ik.imagekit.io/72mu50jam/Picsart_24-10-30_08-01-47-075%20(1).jpg?updatedAt=1732738079872"
                 />
               </div>
             </div>
@@ -109,7 +109,7 @@ const Navbar = () => {
             </ul>
           </div>
         ) : (
-          <Link to="/login" className="btn btn-ghost hidden sm:block">
+          <Link to="/login" className="btn btn-primary hidden sm:block">
             Login
           </Link>
         )}
