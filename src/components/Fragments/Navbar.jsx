@@ -109,7 +109,7 @@ const Navbar = () => {
             </ul>
           </div>
         ) : (
-          <Link to="/login" className="btn btn-primary hidden sm:block">
+          <Link to="/login" className="hidden">
             Login
           </Link>
         )}
