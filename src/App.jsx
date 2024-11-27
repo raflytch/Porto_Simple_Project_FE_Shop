@@ -19,8 +19,10 @@ const App = () => {
             path="/"
             element={
               <AuthMiddleware>
-                <Navbar />
-                <Homepage />
+                <div className="overflow-x-hidden">
+                  <Navbar />
+                  <Homepage />
+                </div>
               </AuthMiddleware>
             }
           />
@@ -28,8 +30,10 @@ const App = () => {
             path="/cart"
             element={
               <AuthMiddleware>
-                <Navbar />
-                <CartPage />
+                <div className="overflow-x-hidden">
+                  <Navbar />
+                  <CartPage />
+                </div>
               </AuthMiddleware>
             }
           />
@@ -45,8 +49,10 @@ const App = () => {
             path="/profile/:id"
             element={
               <AuthMiddleware>
-                <Navbar />
-                <ProfileDetail />
+                <div className="overflow-x-hidden">
+                  <Navbar />
+                  <ProfileDetail />
+                </div>
               </AuthMiddleware>
             }
           />
